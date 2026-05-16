@@ -1,12 +1,18 @@
 # Virtual Environment
 suspension_env/
 
+# YOLO outputs
+runs/
+
+# Models
+*.pt
+
+# Dataset
+pothole-1/
+
 # Python cache
 __pycache__/
 *.pyc
-
-# YOLO outputs
-runs/
 
 # Jupyter
 .ipynb_checkpoints/
@@ -16,3 +22,6 @@ runs/
 
 # Environment variables
 .env
+
+# Label cache
+*.cache
