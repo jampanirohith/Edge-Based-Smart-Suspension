@@ -113,7 +113,15 @@ True NVIDIA GeForce RTX 5050 Laptop GPU
 
 ---
 
-## 3.4 Install Ultralytics (YOLOv8)
+## 3.4 Install OpenCV
+
+```bash
+pip install opencv-python
+```
+
+---
+
+## 3.5 Install Ultralytics (YOLOv8)
 
 ```bash
 pip install ultralytics
@@ -121,7 +129,7 @@ pip install ultralytics
 
 ---
 
-## 3.5 Verify YOLO Installation
+## 3.6 Verify YOLO Installation
 
 ```bash
 python -c "from ultralytics import YOLO; print('YOLOv8 OK')"
@@ -135,7 +143,7 @@ YOLOv8 OK
 
 ---
 
-## 3.6 Install Additional Libraries
+## 3.7 Install Additional Libraries
 
 ### Roboflow (dataset downloading)
 
@@ -146,7 +154,7 @@ pip install roboflow
 ### Image processing and visualization
 
 ```bash
-pip install opencv-python matplotlib Pillow
+pip install matplotlib Pillow
 ```
 
 ### Data processing libraries

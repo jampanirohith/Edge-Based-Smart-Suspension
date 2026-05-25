@@ -2,7 +2,6 @@ from ultralytics import YOLO
 import torch
 import os
 
-
 def main():
 
     # ── Verify GPU availability ────────────────────────────────────────────
@@ -22,7 +21,7 @@ def main():
         imgsz=640,
 
         # ── TRAINING DURATION ─────────────────────────────────────────
-        epochs=1,
+        epochs=30,
         patience=20,
 
         # ── BATCH & COMPUTE ───────────────────────────────────────────
@@ -51,7 +50,7 @@ def main():
         # copy_paste=0.0,
 
         # ── OUTPUT & SAVING ───────────────────────────────────────────
-        project=r"D:\Github Repositeries\Smart-Suspension\runs\train",
+        project="training_outputs",
         name="suspension_v1",
         save=True,
         save_period=10,
@@ -72,7 +71,7 @@ def main():
     )
 
     print("\nTraining complete!")
-    print("Best model saved at: runs/train/suspension_v1/weights/best.pt")
+    print("Best model saved at: training_outputs/suspension_v1/weights/best.pt")
 
 
 # Required for Windows multiprocessing

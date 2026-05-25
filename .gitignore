@@ -2,7 +2,6 @@
 suspension_env/
 
 # YOLO outputs
-runs/
 
 # Models
 *.pt
