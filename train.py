@@ -17,7 +17,7 @@ def main():
     results = model.train(
 
         # ── DATA ──────────────────────────────────────────────────────
-        data=r"pothole-small-1\data.yaml",   # path to your data config
+        data=r"Potholes\Bumps-1\data.yaml",   # path to your data config
         imgsz=640,
 
         # ── TRAINING DURATION ─────────────────────────────────────────

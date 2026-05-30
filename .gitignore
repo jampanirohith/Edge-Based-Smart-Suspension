@@ -4,11 +4,10 @@ suspension_env/
 # YOLO outputs
 
 # Models
-*.pt
+
 
 # Dataset
-pothole-1/
-pothole-small-1/
+Potholes & Bumps/
 
 # Python cache
 __pycache__/

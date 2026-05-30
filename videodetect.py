@@ -3,7 +3,7 @@ import cv2
 
 # ── LOAD TRAINED MODEL ─────────────────────────────
 model = YOLO(
-    r"training_outputs\suspension_v1\weights\best.pt"
+    r"runs\detect\training_outputs\suspension_v1\weights\best.pt"
 )
 
 # ── INPUT VIDEO PATH ───────────────────────────────
