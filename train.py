@@ -11,7 +11,7 @@ def main():
     device = 0 if torch.cuda.is_available() else "cpu"
 
     # ── Load pretrained YOLOv8s ───────────────────────────────────────────
-    model = YOLO("yolov8n.pt")
+    model = YOLO("runs\detect\training_outputs\suspension_v1\weights\best.pt")
 
     # ── Train ─────────────────────────────────────────────────────────────
     results = model.train(
@@ -21,8 +21,8 @@ def main():
         imgsz=640,
 
         # ── TRAINING DURATION ─────────────────────────────────────────
-        epochs=30,
-        patience=20,
+        epochs=10,
+        # patience=20,
 
         # ── BATCH & COMPUTE ───────────────────────────────────────────
         batch=16,
@@ -39,19 +39,19 @@ def main():
         weight_decay=0.0005,
 
         # ── AUGMENTATION ──────────────────────────────────────────────
-        augment=False,
-        # hsv_h=0.015,
-        # hsv_s=0.7,
-        # hsv_v=0.4,
-        # flipud=0.0,
-        # fliplr=0.5,
+        augment=True,
+        hsv_h=0.015,
+        hsv_s=0.7,
+        hsv_v=0.4,
+        flipud=0.0,
+        fliplr=0.5,
         # mosaic=1.0,
         # mixup=0.1,
         # copy_paste=0.0,
 
         # ── OUTPUT & SAVING ───────────────────────────────────────────
         project="training_outputs",
-        name="suspension_v1",
+        name="suspension_v2",
         save=True,
         save_period=10,
 
@@ -71,7 +71,7 @@ def main():
     )
 
     print("\nTraining complete!")
-    print("Best model saved at: training_outputs/suspension_v1/weights/best.pt")
+    print("Best model saved at: training_outputs/suspension_v2/weights/best.pt")
 
 
 # Required for Windows multiprocessing
