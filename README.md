@@ -152,7 +152,7 @@ SMART-SUSPENSION/
 ### Clone the repo
 
 ```bash
-git clone https://github.com/jampanirohith/Smart-Suspension
+git clone https://github.com/jampanirohith/Edge-Based-Smart-Suspension
 ```
 
 ---
