@@ -3,11 +3,11 @@ import cv2
 
 # ── LOAD TRAINED MODEL ─────────────────────────────
 model = YOLO(
-    r"runs\detect\training_outputs\suspension_v1\weights\best.pt"
+    r"runs\detect\training_outputs\suspension_v2\weights\best.pt"
 )
 
 # ── INPUT VIDEO PATH ───────────────────────────────
-video_path = r"test2.mp4"
+video_path = r"test.mp4"
 
 # ── OPEN VIDEO ─────────────────────────────────────
 cap = cv2.VideoCapture(video_path)
@@ -23,7 +23,7 @@ frame_height = int(cap.get(cv2.CAP_PROP_FRAME_HEIGHT))
 fps = int(cap.get(cv2.CAP_PROP_FPS))
 
 # ── OUTPUT VIDEO WRITER ────────────────────────────
-output_path = "output2.mp4"
+output_path = "output1.mp4"
 
 fourcc = cv2.VideoWriter_fourcc(*'mp4v')
 
