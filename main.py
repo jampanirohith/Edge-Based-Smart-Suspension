@@ -3,8 +3,8 @@ import cv2
 import math
 import csv
 
-CAMERA_HEIGHT_M = 1.0    # CAMERA PARAMETERS
-PITCH_DEG = 15.0
+CAMERA_HEIGHT_M = 1.2    # CAMERA PARAMETERS
+PITCH_DEG = 8.0
 
 SPEED_KMH = 40 
 
@@ -61,7 +61,7 @@ fps = int(
     cap.get(cv2.CAP_PROP_FPS)
 )
 
-FOCAL_PX = frame_height
+FOCAL_PX = int(frame_width * 0.9)
 
 output_path = "output.mp4"
 
@@ -87,6 +87,7 @@ writer.writerow([
     "confidence",
     "distance_m",
     "real_width_m",
+    "risk_score",
     "severity",
     "tti_s",
     "urgency"
@@ -136,10 +137,12 @@ while True:
             distance
         ) / FOCAL_PX
 
-        if real_width < 0.30:
+        risk_score = real_width / max(distance, 1)
+
+        if risk_score < 0.08:
             severity = "Low"
 
-        elif real_width < 0.80:
+        elif risk_score < 0.18:
             severity = "Medium"
 
         else:
@@ -155,20 +158,24 @@ while True:
             speed_mps
         )
 
-        if tti > 2:
+        if tti > 3:
             urgency = "Low"
 
-        elif tti > 1:
+        elif tti > 1.5:
             urgency = "Medium"
 
         else:
             urgency = "High"
 
 
-        if severity == "High" and urgency == "High":
+
+        if urgency == "High" and severity == "High":
             decision = "ADJUST NOW"
 
-        elif severity == "High":
+        elif urgency == "High" and severity == "Medium":
+            decision = "PREPARE"
+
+        elif urgency == "Medium" and severity == "High":
             decision = "PREPARE"
 
         else:
@@ -180,6 +187,16 @@ while True:
             (x1, y1),
             (x2, y2),
             (0, 255, 0),
+            2
+        )
+
+        cv2.putText(
+            annotated_frame,
+            f"R:{risk_score:.2f}",
+            (x1, y1 - 80),
+            cv2.FONT_HERSHEY_SIMPLEX,
+            0.55,
+            (0, 255, 255),
             2
         )
 
@@ -240,6 +257,7 @@ while True:
             round(conf, 4),
             round(distance, 2),
             round(real_width, 2),
+            round(risk_score, 3),
             severity,
             round(tti, 2),
             urgency

@@ -116,7 +116,7 @@ True NVIDIA GeForce RTX 5050 Laptop GPU
 ## 3.4 Install OpenCV
 
 ```bash
-pip install opencv-python
+pip install opencv-python==4.10.0.84
 ```
 
 ---
