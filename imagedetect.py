@@ -1,33 +1,24 @@
 from ultralytics import YOLO
 import cv2
 
-# ── LOAD TRAINED MODEL ─────────────────────────────────
 model = YOLO(
-    r"training_outputs\suspension_v1\weights\best.pt"
+    r"runs\detect\training_outputs\suspension_v2\weights\best.pt"
 )
 
-# ── IMAGE PATH ─────────────────────────────────────────
 image_path = (
-    r"pothole-small-1\train\images\11_jpg.rf.4f03b935bde2988925f5892bab2fc441.jpg"
+    r"bump.jpg"
 )
 
-# ── RUN PREDICTION ─────────────────────────────────────
 results = model.predict(
 
     source=image_path,
-
     conf=0.3,
-
     show=True,
-
     save=True,
-
     verbose=False
 )
 
-# ── PRINT DETECTIONS ───────────────────────────────────
 for result in results:
-
     boxes = result.boxes
 
     print(f"\nDetected Objects: {len(boxes)}")
