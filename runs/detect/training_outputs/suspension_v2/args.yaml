@@ -1,7 +1,7 @@
 task: detect
 mode: train
-model: /content/Smart-Suspension/runs/detect/training_outputs/suspension_v1/weights/best.pt
-data: /content/Potholes/Bumps-1/data.yaml
+model: runs\detect\training_outputs\suspension_v1\weights\best.pt
+data: Potholes\Bumps-1\data.yaml
 epochs: 10
 time: null
 patience: 100
@@ -107,4 +107,4 @@ auto_augment: randaugment
 erasing: 0.4
 cfg: null
 tracker: botsort.yaml
-save_dir: /content/runs/detect/training_outputs/suspension_v2
+save_dir: runs\detect\training_outputs\suspension_v2

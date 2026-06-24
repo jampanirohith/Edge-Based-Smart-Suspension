@@ -25,18 +25,18 @@ Expected: GPU information table should appear.
 
 # 2. Setting Up Environment and Prerequisites
 
-## 2.1 Install Python 3.11
+## 2.1 Install Python 3.13
 
-Install Python 3.11:
+Install Python 3.13:
 
 ```bash
-py install 3.11
+py install 3.13
 ```
 
 Verify installation:
 
 ```bash
-py -3.11 --version
+py -3.13 --version
 ```
 
 Expected output:
@@ -52,7 +52,7 @@ Python 3.11.x
 Create a virtual environment inside the project directory:
 
 ```bash
-py -3.11 -m venv suspension_env
+py -3.13 -m venv suspension_env
 ```
 
 This creates an isolated Python environment for the project.
@@ -80,7 +80,7 @@ Expected output in terminal:
 ## 3.1 Upgrade pip
 
 ```bash
-python -m pip install --upgrade pip
+python pip install --upgrade pip
 ```
 
 ---
@@ -116,7 +116,7 @@ True NVIDIA GeForce RTX 5050 Laptop GPU
 ## 3.4 Install OpenCV
 
 ```bash
-pip install opencv-python==4.10.0.84
+pip install opencv-python
 ```
 
 ---
