@@ -4,9 +4,8 @@ from datetime import datetime
 
 STREAM_URL = "http://192.168.137.133:8080/video"
 
-# Load your trained model
 model = YOLO(
-    r"yolov8n.pt"
+    r"runs\detect\training_outputs\suspension_v2\weights\best.pt"
 )
 
 cap = cv2.VideoCapture(STREAM_URL)
@@ -15,22 +14,18 @@ if not cap.isOpened():
     print("Could not connect to stream")
     exit()
 
-# Read first frame to get dimensions
 ret, frame = cap.read()
 
 if not ret:
     print("Could not read first frame")
     exit()
 
-# Resize dimensions for display and saving
 WIDTH = 1280
 HEIGHT = 720
 
-# Create output filename with timestamp
 timestamp = datetime.now().strftime("%Y%m%d_%H%M%S")
 output_file = f"smart_suspension_{timestamp}.mp4"
 
-# Video writer
 fourcc = cv2.VideoWriter_fourcc(*"mp4v")
 out = cv2.VideoWriter(
     output_file,
@@ -39,7 +34,6 @@ out = cv2.VideoWriter(
     (WIDTH, HEIGHT)
 )
 
-# Create fullscreen window
 cv2.namedWindow(
     "Smart Suspension Detection",
     cv2.WINDOW_NORMAL
@@ -71,13 +65,11 @@ while True:
 
     annotated_frame = results[0].plot()
 
-    # Display
     cv2.imshow(
         "Smart Suspension Detection",
         annotated_frame
     )
 
-    # Save frame
     out.write(annotated_frame)
 
     frame_count += 1
